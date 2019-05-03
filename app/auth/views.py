@@ -1,4 +1,5 @@
 from flask import render_template, redirect, request, url_for, flash
+from flask.json import jsonify
 from flask_login import login_user, logout_user, login_required, \
     current_user
 from . import auth
@@ -167,3 +168,27 @@ def change_email(token):
     else:
         flash('Invalid request.')
     return redirect(url_for('main.index'))
+
+def ret_data(code=200, success=True, msg='', data=''):
+    return dict(code=code, success=success, msg=msg, data=data)
+
+
+def test_add_url_for():
+    raise Exception('test for exception')
+    return jsonify(ret_data(msg='test for add_url_rule'))
+
+def test_transcaction():
+    user = User.query.filter_by(id=1).first()
+    print user.to_json()
+    user.about_me='1'
+    db.session.add(user)
+    # raise Exception('xxxx')
+    user = User.query.filter_by(id=1).first()
+    user.about_me='2'
+    db.session.add(user)
+    user = User.query.filter_by(id=1).first()
+    return jsonify(ret_data(data=[user.to_json()]))
+
+auth.add_url_rule('/addurl_test', view_func=test_add_url_for)
+auth.add_url_rule('/test_tran', view_func=test_transcaction)
+

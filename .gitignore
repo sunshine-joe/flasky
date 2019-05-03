@@ -1,5 +1,7 @@
 *.py[cod]
 
+.idea
+
 # C extensions
 *.so
 
@@ -44,3 +46,6 @@ venv
 # Environment files
 .env
 .env-mysql
+
+# log file
+*.log
