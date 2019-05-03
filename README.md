@@ -13,13 +13,13 @@ The code examples for the first edition of the book were moved to a different re
 ---
 # 更新
 ## 首次启动流程
-virtualenv venv #安装venv
-source venv/bin/activate #进入venv环境
-pip install -r requirements.txt #安装依赖包
-export FLASK_APP=flasky.py #设置flask环境变量（也可通过dotenv的.env文件设置）
-export FLASK_DEBUG=1 #设置flask环境变量（也可通过dotenv的.env文件设置）
-flask deploy #DB升级+系统初始化数据
-flask profile #启动server
+- virtualenv venv #安装venv
+- source venv/bin/activate #进入venv环境
+- pip install -r requirements.txt #安装依赖包
+- export FLASK_APP=flasky.py #设置flask环境变量（也可通过dotenv的.env文件设置）
+- export FLASK_DEBUG=1 #设置flask环境变量（也可通过dotenv的.env文件设置）
+- flask deploy #DB升级+系统初始化数据
+- flask profile #启动server
 
 
 # 变动记录
